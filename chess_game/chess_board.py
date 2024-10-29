@@ -4,6 +4,7 @@ class ChessBoard:
     def __init__(self):
         self.board = [[None for _ in range(8)] for _ in range(8)]
         self._initialize_pieces()
+        self.move_count = 0
 
     def _initialize_pieces(self):
         # Initialize pawns
@@ -121,6 +122,7 @@ class ChessBoard:
         piece = self.board[from_row][from_col]
         self.board[to_row][to_col] = piece
         self.board[from_row][from_col] = None
+        self.move_count += 1
 
     def is_game_over(self):
         # Simplified game over check: game ends if either king is captured
